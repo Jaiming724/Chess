@@ -17,12 +17,13 @@ public class Board extends Actor {
         super();
         shapeRenderer = new ShapeRenderer();
         this.stage = stage;
-        stage.addActor(new Pawn(Color.WHITE));
+
 
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
+
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
 
         float count = 0;
@@ -32,7 +33,7 @@ public class Board extends Actor {
                     shapeRenderer.setColor(0 / 255f, 0 / 255f, 0 / 255f, 1.0f);
 
                 } else {
-                    shapeRenderer.setColor(100 / 255f, 100 / 255f, 100 / 255f, 1.0f);
+                    shapeRenderer.setColor(255 / 255f, 255 / 255f, 255 / 255f, 1.0f);
                 }
 
                 shapeRenderer.rect(j * 100, i * 100, ((j * 100) + 100), ((i * 100) + 100));

@@ -18,6 +18,7 @@ public class ChessApp extends ApplicationAdapter {
         Gdx.input.setInputProcessor(stage);
 
         stage.addActor(new Board(stage));
+        stage.addActor(new Pawn(Color.WHITE));
 
     }
 
