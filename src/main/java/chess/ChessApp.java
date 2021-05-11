@@ -5,6 +5,7 @@ import chess.actors.pieces.Color;
 import chess.actors.pieces.Pawn;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -16,9 +17,9 @@ public class ChessApp extends ApplicationAdapter {
     public void create() {
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-
-        stage.addActor(new Board(stage));
-        stage.addActor(new Pawn(Color.WHITE));
+        Board board = new Board(stage);
+        stage.addActor(board);
+        board.init();
 
     }
 
