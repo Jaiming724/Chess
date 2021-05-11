@@ -2,25 +2,15 @@ package chess.actors.pieces;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 
 public class Pawn extends Piece {
-    private Sprite sprite;
 
     public Pawn(Color color, int x, int y) {
-
-        if (color == Color.BLACK) {
-            sprite = new Sprite(new Texture("black_pawn.png"));
-
-        } else {
-            sprite = new Sprite(new Texture("white_pawn.png"));
-        }
-        this.color = color;
-        this.name = "Pawn";
-        sprite.setPosition(x, y);
-        setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
+        super((new Texture("black_pawn.png")));
+        setBounds(super.getX(), super.getY(), super.getWidth(), super.getHeight());
+        setPosition(x, y);
         addListener(new DragListener() {
 
             public void drag(InputEvent event, float x, float y, int pointer) {
@@ -30,16 +20,16 @@ public class Pawn extends Piece {
             @Override
             public void dragStop(InputEvent event, float x, float y, int pointer) {
                 System.out.println(getDragStartX());
-                System.out.println("X " + (getX() / 2) + " Y " + (getY() / 2));
-               // sprite.setPosition(closest(getX() / 2), closest(getY() / 2));
+                System.out.println("X " + (getX()) + " Y " + (getY()));
+                System.out.println("Closest X " + closest(getX()) + " Closest Y " + closest(getY()));
+                setPosition(closest(getX()), closest(getY()));
             }
         });
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-
-        batch.draw(sprite, sprite.getX(), sprite.getY());
+        super.draw(batch, parentAlpha);
     }
 
     @Override
@@ -50,7 +40,7 @@ public class Pawn extends Piece {
     @Override
     protected void positionChanged() {
         super.positionChanged();
-        sprite.setPosition(getX(), getY());
+        super.setPosition(getX(), getY());
     }
 
     public Color getPieceColor() {
@@ -62,8 +52,14 @@ public class Pawn extends Piece {
     }
 
     public int closest(float x) {
-        int i = (int) Math.ceil(x);
-        return ((i + 99) / 100) * 100;
+
+        if (x + 100 - x < 20) {
+            x += 20;
+        }
+        int rounded = ((int) Math.round(x / 100.0)) * 100;
+
+        return rounded;
+
     }
 
 
