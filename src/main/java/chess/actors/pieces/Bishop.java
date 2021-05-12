@@ -8,6 +8,11 @@ public class Bishop extends Piece {
     }
 
     @Override
+    public boolean isValidMove() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "B";
     }
