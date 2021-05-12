@@ -27,6 +27,7 @@ public class Board extends Actor {
 
     public void init() {
         setUp();
+        printBoard();
     }
 
     @Override
@@ -64,13 +65,50 @@ public class Board extends Actor {
     private void setUp() {
         for (int i = 0; i < 8; i++) {
             Piece whitePawn = pieceFactory.makePiece("Pawn", Color.WHITE, i * TILE_SIZE_X, TILE_SIZE_Y);
-            pieces[i][1] = whitePawn;
-            stage.addActor(whitePawn);
+            pieces[1][i] = whitePawn;
 
             Piece blackPawn = pieceFactory.makePiece("Pawn", Color.BLACK, i * TILE_SIZE_X, 6 * TILE_SIZE_Y);
-            pieces[i][6] = blackPawn;
-            stage.addActor(blackPawn);
+            pieces[6][i] = blackPawn;
+        }
 
+        pieces[0][0] = pieceFactory.makePiece("Rook", Color.WHITE, 0, 0);
+        pieces[0][7] = pieceFactory.makePiece("Rook", Color.WHITE, 7 * TILE_SIZE_X, 0);
+        pieces[7][0] = pieceFactory.makePiece("Rook", Color.BLACK, 0, 7 * TILE_SIZE_Y);
+        pieces[7][7] = pieceFactory.makePiece("Rook", Color.BLACK, 7 * TILE_SIZE_X, 7 * TILE_SIZE_Y);
+
+        pieces[0][1] = pieceFactory.makePiece("Knight", Color.WHITE, TILE_SIZE_X, 0);
+        pieces[0][6] = pieceFactory.makePiece("Knight", Color.WHITE, 6 * TILE_SIZE_X, 0);
+        pieces[7][1] = pieceFactory.makePiece("Knight", Color.BLACK, TILE_SIZE_X, 7*TILE_SIZE_Y);
+        pieces[7][6] = pieceFactory.makePiece("Knight", Color.BLACK, 6 * TILE_SIZE_X, 7*TILE_SIZE_Y);
+
+        pieces[0][2] = pieceFactory.makePiece("Bishop",Color.WHITE,2*TILE_SIZE_X,0);
+        pieces[0][5] = pieceFactory.makePiece("Bishop",Color.WHITE,5*TILE_SIZE_X,0);
+        pieces[7][2] = pieceFactory.makePiece("Bishop",Color.BLACK,2*TILE_SIZE_X,7*TILE_SIZE_Y);
+        pieces[7][5] = pieceFactory.makePiece("Bishop",Color.BLACK,5*TILE_SIZE_X,7*TILE_SIZE_Y);
+
+        pieces[0][4] = pieceFactory.makePiece("King",Color.WHITE,4*TILE_SIZE_X,0);
+        pieces[7][4] = pieceFactory.makePiece("King",Color.BLACK,4*TILE_SIZE_X,7*TILE_SIZE_Y);
+
+        pieces[0][3] = pieceFactory.makePiece("Queen",Color.WHITE,3*TILE_SIZE_X,0);
+        pieces[7][3] = pieceFactory.makePiece("Queen",Color.BLACK,3*TILE_SIZE_X,7*TILE_SIZE_Y);
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[0].length; j++) {
+                if (pieces[i][j] != null) {
+                    stage.addActor(pieces[i][j]);
+                }
+            }
+        }
+    }
+    public void printBoard(){
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[0].length; j++) {
+                if (pieces[i][j] == null) {
+                    System.out.print("*");
+                }else{
+                    System.out.print(pieces[i][j].toString());
+                }
+            }
+            System.out.println();
         }
     }
 
