@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 
 public abstract class Piece extends Image {
     Color color;
-    String name;
     float startX, startY;
 
     public Piece(Texture texture, int x, int y, Color color) {
@@ -33,7 +32,7 @@ public abstract class Piece extends Image {
             public void dragStop(InputEvent event, float x, float y, int pointer) {
                 System.out.println("Closest X " + closest(getX()) + " Closest Y " + closest(getY()));
 
-                if (isValidMove()==MoveType.NORMAL) {
+                if (isValidMove() == MoveType.NORMAL) {
                     setPosition(closest(getX()), closest(getY()));
                 } else {
                     setPosition(startX, startY);
@@ -74,9 +73,10 @@ public abstract class Piece extends Image {
         return color;
     }
 
-    public String getName() {
+    public abstract MoveType isValidMove();
+
+    @Override
+    public String toString() {
         return "Piece";
     }
-
-    public abstract MoveType isValidMove();
 }
