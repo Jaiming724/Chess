@@ -63,7 +63,7 @@ public abstract class Piece extends Image {
     }
 
     public String getName() {
-        return name;
+        return "Piece";
     }
 
 }
