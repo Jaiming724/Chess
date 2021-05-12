@@ -9,7 +9,7 @@ public class Bishop extends Piece {
 
     @Override
     public MoveType isValidMove() {
-        return false;
+        return MoveType.ABORT;
     }
 
     @Override
