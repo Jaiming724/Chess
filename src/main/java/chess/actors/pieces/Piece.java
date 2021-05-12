@@ -33,7 +33,7 @@ public abstract class Piece extends Image {
             public void dragStop(InputEvent event, float x, float y, int pointer) {
                 System.out.println("Closest X " + closest(getX()) + " Closest Y " + closest(getY()));
 
-                if (isValidMove()) {
+                if (isValidMove()==MoveType.NORMAL) {
                     setPosition(closest(getX()), closest(getY()));
                 } else {
                     setPosition(startX, startY);
@@ -78,5 +78,5 @@ public abstract class Piece extends Image {
         return "Piece";
     }
 
-    public abstract boolean isValidMove();
+    public abstract MoveType isValidMove();
 }

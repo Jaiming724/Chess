@@ -8,8 +8,9 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean isValidMove() {
-        return false;
+    public MoveType isValidMove() {
+
+        return MoveType.ABORT;
     }
 
     @Override

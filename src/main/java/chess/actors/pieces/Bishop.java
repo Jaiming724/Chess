@@ -8,7 +8,7 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean isValidMove() {
+    public MoveType isValidMove() {
         return false;
     }
 

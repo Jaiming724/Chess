@@ -8,8 +8,9 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean isValidMove() {
-        return false;
+    public MoveType isValidMove() {
+
+        return MoveType.ABORT;
     }
 
     @Override
