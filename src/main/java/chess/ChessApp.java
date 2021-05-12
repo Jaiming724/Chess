@@ -1,11 +1,8 @@
 package chess;
 
 import chess.actors.Board;
-import chess.actors.pieces.Color;
-import chess.actors.pieces.Pawn;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;

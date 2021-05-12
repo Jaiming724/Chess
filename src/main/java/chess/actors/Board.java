@@ -9,12 +9,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Board extends Actor {
-    private ShapeRenderer shapeRenderer;
-    private Piece[][] pieces;
     public static final int TILE_SIZE_X = 100;
     public static final int TILE_SIZE_Y = 100;
-    Stage stage;
-    PieceFactory pieceFactory;
+    private Stage stage;
+    private PieceFactory pieceFactory;
+    private ShapeRenderer shapeRenderer;
+    private Piece[][] pieces;
 
     public Board(Stage stage) {
         super();
@@ -78,19 +78,19 @@ public class Board extends Actor {
 
         pieces[0][1] = pieceFactory.makePiece("Knight", Color.WHITE, TILE_SIZE_X, 0);
         pieces[0][6] = pieceFactory.makePiece("Knight", Color.WHITE, 6 * TILE_SIZE_X, 0);
-        pieces[7][1] = pieceFactory.makePiece("Knight", Color.BLACK, TILE_SIZE_X, 7*TILE_SIZE_Y);
-        pieces[7][6] = pieceFactory.makePiece("Knight", Color.BLACK, 6 * TILE_SIZE_X, 7*TILE_SIZE_Y);
+        pieces[7][1] = pieceFactory.makePiece("Knight", Color.BLACK, TILE_SIZE_X, 7 * TILE_SIZE_Y);
+        pieces[7][6] = pieceFactory.makePiece("Knight", Color.BLACK, 6 * TILE_SIZE_X, 7 * TILE_SIZE_Y);
 
-        pieces[0][2] = pieceFactory.makePiece("Bishop",Color.WHITE,2*TILE_SIZE_X,0);
-        pieces[0][5] = pieceFactory.makePiece("Bishop",Color.WHITE,5*TILE_SIZE_X,0);
-        pieces[7][2] = pieceFactory.makePiece("Bishop",Color.BLACK,2*TILE_SIZE_X,7*TILE_SIZE_Y);
-        pieces[7][5] = pieceFactory.makePiece("Bishop",Color.BLACK,5*TILE_SIZE_X,7*TILE_SIZE_Y);
+        pieces[0][2] = pieceFactory.makePiece("Bishop", Color.WHITE, 2 * TILE_SIZE_X, 0);
+        pieces[0][5] = pieceFactory.makePiece("Bishop", Color.WHITE, 5 * TILE_SIZE_X, 0);
+        pieces[7][2] = pieceFactory.makePiece("Bishop", Color.BLACK, 2 * TILE_SIZE_X, 7 * TILE_SIZE_Y);
+        pieces[7][5] = pieceFactory.makePiece("Bishop", Color.BLACK, 5 * TILE_SIZE_X, 7 * TILE_SIZE_Y);
 
-        pieces[0][4] = pieceFactory.makePiece("King",Color.WHITE,4*TILE_SIZE_X,0);
-        pieces[7][4] = pieceFactory.makePiece("King",Color.BLACK,4*TILE_SIZE_X,7*TILE_SIZE_Y);
+        pieces[0][4] = pieceFactory.makePiece("King", Color.WHITE, 4 * TILE_SIZE_X, 0);
+        pieces[7][4] = pieceFactory.makePiece("King", Color.BLACK, 4 * TILE_SIZE_X, 7 * TILE_SIZE_Y);
 
-        pieces[0][3] = pieceFactory.makePiece("Queen",Color.WHITE,3*TILE_SIZE_X,0);
-        pieces[7][3] = pieceFactory.makePiece("Queen",Color.BLACK,3*TILE_SIZE_X,7*TILE_SIZE_Y);
+        pieces[0][3] = pieceFactory.makePiece("Queen", Color.WHITE, 3 * TILE_SIZE_X, 0);
+        pieces[7][3] = pieceFactory.makePiece("Queen", Color.BLACK, 3 * TILE_SIZE_X, 7 * TILE_SIZE_Y);
         for (int i = 0; i < pieces.length; i++) {
             for (int j = 0; j < pieces[0].length; j++) {
                 if (pieces[i][j] != null) {
@@ -99,12 +99,13 @@ public class Board extends Actor {
             }
         }
     }
-    public void printBoard(){
+
+    public void printBoard() {
         for (int i = 0; i < pieces.length; i++) {
             for (int j = 0; j < pieces[0].length; j++) {
                 if (pieces[i][j] == null) {
                     System.out.print("*");
-                }else{
+                } else {
                     System.out.print(pieces[i][j].toString());
                 }
             }

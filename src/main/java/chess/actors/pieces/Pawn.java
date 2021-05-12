@@ -10,7 +10,6 @@ public class Pawn extends Piece {
 
     @Override
     public MoveType isValidMove() {
-
         return MoveType.ABORT;
     }
 
