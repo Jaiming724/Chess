@@ -22,7 +22,7 @@ public class Board extends Actor {
 
         pieces = new Piece[8][8];
         shapeRenderer = new ShapeRenderer();
-        pieceFactory = new PieceFactory();
+        pieceFactory = new PieceFactory(pieces);
     }
 
     public void init() {

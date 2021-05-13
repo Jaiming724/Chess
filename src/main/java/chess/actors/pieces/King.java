@@ -3,8 +3,8 @@ package chess.actors.pieces;
 import com.badlogic.gdx.graphics.Texture;
 
 public class King extends Piece {
-    public King(Texture texture, int x, int y, Color color) {
-        super(texture, x, y, color);
+    public King(Texture texture, int x, int y, Color color, Piece[][] board) {
+        super(texture, x, y, color, board);
     }
 
     @Override

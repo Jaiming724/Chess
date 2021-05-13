@@ -10,8 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 public abstract class Piece extends Image {
     Color color;
     float startX, startY;
+    Piece[][] board;
 
-    public Piece(Texture texture, int x, int y, Color color) {
+    public Piece(Texture texture, int x, int y, Color color, Piece[][] board) {
         super(texture);
         setBounds(super.getX(), super.getY(), super.getWidth(), super.getHeight());
         setPosition(x, y);
@@ -40,6 +41,7 @@ public abstract class Piece extends Image {
             }
         });
         this.color = color;
+        this.board = board;
     }
 
     @Override
